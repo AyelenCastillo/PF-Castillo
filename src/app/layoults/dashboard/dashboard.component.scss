@@ -1,0 +1,57 @@
+
+hr {
+    border-color: #333; 
+    height: 1px; 
+    border: none; 
+    background-color: #333; 
+}
+  
+.dashboard-container{
+    height: 100vh;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-art{
+    height: auto;
+    width: 4rem;
+}
+.artcom{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    color: rgb(245, 255, 225);
+    background: -moz-linear-gradient(90deg, rgba(245, 255, 225, 1) 0%, rgba(250, 138, 255, 1) 35%, rgba(159, 239, 255, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(245, 255, 225, 1) 0%, rgba(250, 138, 255, 1) 35%, rgba(159, 239, 255, 1) 100%);
+    background: linear-gradient(90deg, rgba(245, 255, 225, 1) 0%, rgba(250, 138, 255, 1) 35%, rgba(159, 239, 255, 1) 100%);
+    -webkit-background-clip: text;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f5ffe1", endColorstr="#9fefff", GradientType=1);
+    color: transparent;
+    font-style:oblique;
+}
+.toolbar{
+    background-color: rgb(109, 118, 158);
+    color: white;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+.drawer{
+   @extend .toolbar;
+   width: 18rem;
+}
+
+.pinceles{
+    height: auto;
+    width: 15rem;
+    border-radius: 100%;
+    border-color: black;
+    border: 2px;
+    border-style:solid;
+    margin: 5px;
+}
+.app-users{
+    padding: 1rem;
+}

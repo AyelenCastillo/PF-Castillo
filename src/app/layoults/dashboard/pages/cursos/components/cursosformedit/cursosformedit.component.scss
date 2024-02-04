@@ -1,0 +1,45 @@
+*{
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+  }
+
+.container{
+  width: 100%;
+  background-color: beige;
+  margin-bottom: 20px;
+}
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name,.date,.hours,.price,.description{
+  width: 100%;
+  padding: 8px;
+}
+
+form{
+  padding: 1rem;
+}
+.button{
+  align-items: center;
+  width: 50%;
+  height: 50px;
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2%;
+}
+.button:hover{
+  background-color: lightgray;
+}
+
+.user-form-modal-header{
+  margin-top: 20px;
+}
+
+.x{
+  display: flex;
+  margin-left: auto;
+}

@@ -1,0 +1,45 @@
+<button mat-raised-button class="Acursos" (click)="abrirFormulario()">Agregar Curso</button>
+    <table mat-table [dataSource]="cursos" class="mat-elevation-z8">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef appSizeTitle> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef appSizeTitle> Curso </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef appSizeTitle> Dias de Cursada </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="hours">
+        <th mat-header-cell *matHeaderCellDef appSizeTitle> Horarios </th>
+        <td mat-cell *matCellDef="let element"> {{element.hours}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef appSizeTitle> Acciones </th>
+        <td *matCellDef="let element">
+          <button (click)="eliminarFila(element)">
+            <mat-icon aria-label="Eliminar fila">delete</mat-icon>
+          </button>
+          <button   (click)="editarFila(element)">
+            <mat-icon aria-label="Editar fila">edit</mat-icon>
+          </button>
+          <button  (click)="mostrarDetallesModal(element)">
+            <mat-icon aria-label="Mostrar detalles">info</mat-icon>
+          </button>  
+        </td>
+      </ng-container>
+      
+      <!--configuraciones-->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  
+  

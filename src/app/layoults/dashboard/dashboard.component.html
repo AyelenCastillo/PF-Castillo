@@ -1,0 +1,63 @@
+<mat-drawer-container class="dashboard-container" autosize>
+ <!--Sidenav-->
+     <mat-drawer #drawer class="drawer" mode="side">
+     <img class="pinceles" src="../../../assets/img/pinceles.png" alt="pinceles">
+     <hr>
+    <button (click)="showFiller = !showFiller"  mat-button style="color: white; font-size: large;display: flex; padding-left: 30%;padding-right: 30%;"><b>Administrar</b></button>
+    @if (showFiller) {
+      <ul style="font-size: large; padding-left: 30%;padding-right: 30%;" >
+        <hr>
+        <li><button routerLink="cursos" mat-button>Cursos</button></li>
+        <li><button routerLink="users" mat-button>Usuarios</button></li>
+        <li><button routerLink="inscripciones" mat-button>Inscripciones</button></li>
+      </ul>
+    }
+    <hr>
+    <button (click)="showFiller1 = !showFiller1"  mat-button style="color: white; font-size: large;display: flex; padding-left: 30%;padding-right: 30%;"><b>Contacto</b></button>
+    @if (showFiller1) {
+      <ul style="font-size: large; padding-left: 30%;padding-right: 30%;" >
+        <hr>
+        <li><button mat-button>Chat</button></li>
+        <li><button mat-button>Mail</button></li>
+      </ul>
+    }
+    <hr>
+    <button (click)="showFiller2 = !showFiller2"  mat-button style="color: white; font-size: large;display: flex; padding-left: 30%;padding-right: 30%;"><b>Recursos</b></button>
+    @if (showFiller2) {
+      <ul style="font-size: large;" >
+        <hr>
+        <li><button mat-button>Photoshop & Ilustrator</button></li>
+        <li><button mat-button>Dibujo Digital</button></li>
+        <li><button mat-button>Introducción al Diseño Grafico</button></li>
+      </ul>
+    }
+    <hr>
+    <button mat-button style="color: white; font-size: large; bottom:0;position: fixed;margin-bottom: 20px;margin-left: 50px;">
+      <b>Cerrar Sesión</b>
+  </button>  
+  </mat-drawer>
+ <!--Sidenav-->
+ <!--Contenido-->
+  <div class="example-sidenav-content">
+<!--Toolbar--> 
+    <mat-toolbar class="toolbar">
+        <button  (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <div class="logo">
+        <img class="icon-art" src="../../../assets/img/art_97515.ico" alt="icono arte">
+        <span class="artcom"><b>Artcom</b></span>
+      </div>
+        <button routerLink="" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>home</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+        <app-pipes></app-pipes>
+      </mat-toolbar>
+<!--Toolbar-->
+<router-outlet></router-outlet>
+  </div>
+ <!--Contenido-->
+</mat-drawer-container>

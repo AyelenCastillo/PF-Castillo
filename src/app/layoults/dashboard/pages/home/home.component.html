@@ -1,0 +1,61 @@
+<div class="welcome-container">
+  <h1>Bienvenidos a</h1>
+  <div class="logo">
+    <img class="icon-art" src="../../../assets/img/art_97515.ico" alt="icono arte">
+    <span class="artcom"><b>Artcom</b></span>
+  </div>
+</div>
+
+
+<div class="mat-card-container">
+  <mat-card>
+    <mat-card-content>
+      <mat-tab-group class="instruc" headerPosition="below">
+        <mat-tab label="Usuarios"> 
+          <h1>Instrucciones carga de Usuarios</h1>
+          <img class="tab-image instructivo-image" src="../../../../../assets/img/usuarios.png" alt="usuarios">
+        </mat-tab>
+        <mat-tab label="Cursos"> 
+          <h1>Instrucciones carga de Cursos</h1>
+          <img class="tab-image instructivo-image" src="../../../../../assets/img/cursos.png" alt="cursos">
+        </mat-tab>
+        <mat-tab label="Inscripciones">
+          <h1>Instrucciones carga de Inscripciones</h1>
+          <img class="tab-image instructivo-image" src="../../../../../assets/img/inscriociones.png" alt="inscriociones">
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+  
+
+  <mat-card>
+    <mat-card-content>
+      <h2>Contenido de Alumnos Destacados</h2>
+      <div class="social-cards-container">
+        <div *ngFor="let post of posts.slice((paginaActual - 1) * tamanoPagina, paginaActual * tamanoPagina)" class="social-card">
+          <!-- Contenido de la tarjeta -->
+          <img src="{{ post.imageUrl }}" alt="Imagen de la publicación">
+          <div class="card-content">
+            <p>{{ post.description }}</p>
+          </div>
+          <div class="card-actions">
+            <button mat-icon-button (click)="darLike(post)" matBadge="{{ post.likesCount }}" matBadgePosition="before" matBadgeColor="accent">
+              <mat-icon>thumb_up</mat-icon>
+            </button>
+            <button mat-icon-button (click)="compartir(post)">
+              <mat-icon>share</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-paginator
+      [length]="posts.length"
+      [pageSize]="tamanoPagina"
+      (page)="cambiarPagina($event)"
+    ></mat-paginator>
+  </mat-card>
+</div>
+
+  
