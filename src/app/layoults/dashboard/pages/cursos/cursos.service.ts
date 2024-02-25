@@ -23,6 +23,7 @@ export class CursosService {
   getCourseById(courseId: number): Observable<Course> {
     return this.httpClient.get<Course>(`http://localhost:3000/courses/${courseId}`);
   }  
+  
   updateCourse(updatedCourse: Course): Observable<Course> {
     return this.httpClient.put<Course>(`http://localhost:3000/courses/${updatedCourse.id}`, updatedCourse);
   }

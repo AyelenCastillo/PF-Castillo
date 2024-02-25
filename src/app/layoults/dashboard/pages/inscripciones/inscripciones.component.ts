@@ -9,6 +9,8 @@ import { Registration } from './models';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CursosService } from '../cursos/cursos.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-inscripciones',
@@ -17,6 +19,7 @@ import { CursosService } from '../cursos/cursos.service';
 })
 export class InscripcionesComponent {
   accordionEnabled: boolean = true;
+  isAdmin: boolean = false;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   panelOpenState = false;
   displayedColumns: string[] = ['id', 'fullName', 'email', 'curso','schedule', 'actions'];
@@ -31,7 +34,9 @@ export class InscripcionesComponent {
     private dialog: MatDialog,
     private fb: FormBuilder,
     private http: HttpClient,
-    private cursosService: CursosService
+    private cursosService: CursosService,
+    private router: Router,
+    private authService: AuthService,
   ) {
     this.loadRegistration();
 
@@ -50,7 +55,10 @@ export class InscripcionesComponent {
     this.cursosService.getCourse().subscribe(courses => {
       this.courses = courses;
     });
+    this.isAdmin = this.authService.authUser?.role === 'ADMIN';
+    this.loadRegistration();
   }
+
 
   loadUsers(): void {
     this.http.get<any[]>('http://localhost:3000/users').subscribe(

@@ -1,23 +1,25 @@
 {
   "users": [
     {
+      "firstName": "Admin",
+      "lastName": "",
       "email": "admin@example.com",
       "password": "Admin1",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "id": "7a40"
     },
     {
-      "idUser": 1,
       "firstName": "Alejandro",
       "lastName": "García",
       "email": "alejandro_garcia@example.com",
       "password": "123456789",
-      "role": "Estudiante",
+      "role": "User",
       "dni": "98765432100",
       "birth": "07/15/1992",
       "id": "4ec4"
     },
     {
-      "idUser": 2,
+      "idUser": 1,
       "firstName": "Valentina",
       "lastName": "Rodriguez",
       "email": "valentina_rodriguez@example.com",
@@ -28,7 +30,7 @@
       "id": "f0d1"
     },
     {
-      "idUser": 3,
+      "idUser": 2,
       "firstName": "Sebastian",
       "lastName": "Perez",
       "email": "sebastian_perez@example.com",
@@ -39,7 +41,7 @@
       "id": "28c1"
     },
     {
-      "idUser": 4,
+      "idUser": 3,
       "firstName": "Sophia",
       "lastName": "Rodriguez",
       "email": "sophia_rodriguez@example.com",
@@ -50,7 +52,7 @@
       "id": "7903"
     },
     {
-      "idUser": 5,
+      "idUser": 4,
       "firstName": "Daniel",
       "lastName": "Hernandez",
       "email": "daniel_hernandez@example.com",
@@ -61,7 +63,7 @@
       "id": "a81f"
     },
     {
-      "idUser": 6,
+      "idUser": 5,
       "firstName": "Emily",
       "lastName": "Johnson",
       "email": "emily_johnson@example.com",
@@ -72,7 +74,7 @@
       "id": "8501"
     },
     {
-      "idUser": 7,
+      "idUser": 6,
       "firstName": "Juan",
       "lastName": "Ramirez",
       "email": "juan_ramirez@example.com",
@@ -83,7 +85,7 @@
       "id": "3e08"
     },
     {
-      "idUser": 8,
+      "idUser": 7,
       "firstName": "Ava",
       "lastName": "Taylor",
       "email": "ava_taylor@example.com",
@@ -94,7 +96,7 @@
       "id": "9931"
     },
     {
-      "idUser": 9,
+      "idUser": 8,
       "firstName": "Eduardo",
       "lastName": "Gomez",
       "email": "eduardo_gomez@example.com",
@@ -105,7 +107,7 @@
       "id": "fec3"
     },
     {
-      "idUser": 10,
+      "idUser": 9,
       "firstName": "Mia",
       "lastName": "Martinez",
       "email": "mia_martinez@example.com",
@@ -151,14 +153,6 @@
   "registrations": [
     {
       "id": "1",
-      "firstName": "Alejandro",
-      "lastName": "García",
-      "email": "alejandro_garcia@example.com",
-      "course": "Photoshop & Ilustrator",
-      "schedule": "Lunes & Miercoles 12:00 - 16:00 hs"
-    },
-    {
-      "id": "2",
       "firstName": "Valentina",
       "lastName": "Rodriguez",
       "email": "valentina_rodriguez@example.com",
@@ -166,7 +160,7 @@
       "schedule": "Sábados & Domingo 17:00 - 21:00 hs"
     },
     {
-      "id": "3",
+      "id": "2",
       "firstName": "Sebastian",
       "lastName": "Perez",
       "email": "sebastian_perez@example.com",
@@ -174,7 +168,7 @@
       "schedule": "Martes & Jueves 12:00 - 16:00 hs"
     },
     {
-      "id": "4",
+      "id": "3",
       "firstName": "Sophia",
       "lastName": "Rodriguez",
       "email": "sophia_rodriguez@example.com",
@@ -182,7 +176,7 @@
       "schedule": "Lunes & Miercoles 12:00 - 16:00 hs"
     },
     {
-      "id": "5",
+      "id": "4",
       "firstName": "Daniel",
       "lastName": "Hernandez",
       "email": "daniel_hernandez@example.com",
@@ -190,7 +184,7 @@
       "schedule": "Lunes & Miercoles 12:00 - 16:00 hs"
     },
     {
-      "id": "6",
+      "id": "5",
       "firstName": "Emily",
       "lastName": "Johnson",
       "email": "emily_johnson@example.com",
@@ -198,7 +192,7 @@
       "schedule": "Sábados & Domingo 17:00 - 21:00 hs"
     },
     {
-      "id": "7",
+      "id": "6",
       "firstName": "Juan",
       "lastName": "Ramirez",
       "email": "juan_ramirez@example.com",

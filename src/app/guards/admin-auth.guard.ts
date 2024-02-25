@@ -1,26 +1,22 @@
 import { CanActivateFn } from '@angular/router';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 import { AuthService } from '../layoults/auth/auth.service';
 
 export const adminauthGuard: CanActivateFn = (route, state) => {
-  const router = inject(Router);
   const authService = inject(AuthService);
+  const router = inject(Router);
+
+  // Verificar si el usuario está autenticado
   if (!authService.authUser) {
     return router.createUrlTree(['auth', 'login']);
   }
 
-  if (authService.authUser.role !== 'ADMIN') {
-    Swal.fire({
-      icon: 'error',
-      title: 'Acceso denegado',
-      text: 'No tienes acceso a esta página'
-    }).then(() => {
-      router.navigate(['dashboard', 'home']);
-    });
-    return false; 
-  }
+  // Verificar el rol del usuario
+  const isAdmin = authService.authUser.role === 'ADMIN';
 
-  return true; 
+  // Establecer la propiedad isAdmin en el servicio de autenticación
+  authService.isAdmin = isAdmin;
+
+  return true;
 };

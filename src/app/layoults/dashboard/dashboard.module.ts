@@ -8,6 +8,7 @@ import { CursosModule } from './pages/cursos/cursos.module';
 import { InscripcionesModule } from './pages/inscripciones/inscripciones.module';
 import { SharedModule } from '../../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     UsersModule,
     PipesModule,
     HomeModule,
+    MatCardModule,
     CursosModule,
     InscripcionesModule,
     DashboardRoutingModule,

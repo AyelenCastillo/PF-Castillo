@@ -13,7 +13,7 @@ export interface LoginData {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-
+    isAdmin: boolean = false;
     authUser: User | null = null;
     token: string = '';
 
@@ -29,18 +29,19 @@ export class AuthService {
             this.usersService.getUsers().subscribe(users => {
                 const authenticatedUser = users.find(user =>
                     user.email === data.email &&
-                    user.password === data.password 
+                    user.password === data.password &&
+                    (user.role === 'ADMIN' || user.role === 'User')
                 );
                 if (authenticatedUser) {
                     this.authUser = {
                         email: authenticatedUser.email,
-                        password: '', 
-                        role: authenticatedUser.role 
+                        password: '',
+                        role: authenticatedUser.role
                     };
                     this.token = this.generarToken();
                     localStorage.setItem('authUser', JSON.stringify(this.authUser));
                     localStorage.setItem('token', this.token);
-                    this.router.navigate(['dashboard', 'home']);
+                    this.router.navigate(['dashboard']);
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -53,6 +54,7 @@ export class AuthService {
             console.error('Faltan datos de autenticación');
         }
     }
+    
     
     logout(): void {
         this.authUser = null;
@@ -73,5 +75,5 @@ export class AuthService {
 
     verifyToken() {
         return of(localStorage.getItem('token')).pipe(delay(1000),map((res) => !!res));
-    }
+    }    
 }

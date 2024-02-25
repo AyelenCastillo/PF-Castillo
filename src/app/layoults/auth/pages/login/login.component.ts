@@ -23,46 +23,40 @@ export class LoginComponent {
   }
   
   getEmailErrorMessage(): string | null {
-    const emailControl = this.form.get('email');
-    if (emailControl && emailControl.invalid && (emailControl.dirty || emailControl.touched)) {
-      if (emailControl.hasError('email')) {
-        return 'No es un email válido.';
-      }
-      if (emailControl.hasError('required')) {
-        return 'Este campo es requerido.';
-      }
+    const emailControl = this.form?.get('email');
+    if (emailControl?.hasError('email')) {
+      return 'No es un email válido.';
     }
-    return null;
-  }
-
-  getPasswordErrorMessage(): string | null {
-    const passwordControl = this.form.get('password');
-    if (passwordControl && passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)) {
-      if (passwordControl.hasError('required')) {
-        return 'Este campo es requerido.';
-      }
-      if (passwordControl.hasError('pattern')) {
-        return 'La contraseña debe contener al menos un número.';
-      }
-      if (passwordControl.hasError('minlength')) {
-        return 'La contraseña debe tener al menos 6 caracteres.';
-      }
+    if (emailControl?.hasError('required')) {
+      return 'Este campo es requerido.';
     }
     return null;
   }
   
-  onSubmit(): void {
-    if (this.form && this.form.valid) {
-        const email = this.form.get('email')?.value;
-        const password = this.form.get('password')?.value;
+  getPasswordErrorMessage(): string | null {
+    const passwordControl = this.form?.get('password');
+    if (passwordControl?.hasError('required')) {
+      return 'Este campo es requerido.';
+    }
+    if (passwordControl?.hasError('minlength')) {
+      return 'La contraseña debe tener al menos 6 caracteres.';
+    }
+    return null;
+  }
+  
 
+  onSubmit(): void {
+    const form = this.form;
+    if (form && form.valid) {
+        const email = form.get('email')?.value;
+        const password = form.get('password')?.value;
+  
         if (email && password) {
             const loginData: LoginData = { email, password };
             this.authService.login(loginData);
         }
     }
-}
-
+  }  
 
 
   togglePasswordVisibility(): void {

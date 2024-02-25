@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FullNamePipe } from './full-name.pipe';
 import { SizeTitleDirective } from './size-title.directive';
-import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -38,7 +37,6 @@ import { MatNativeDateModule } from '@angular/material/core';
   exports:[
     FullNamePipe,
     SizeTitleDirective,
-    MatCardModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

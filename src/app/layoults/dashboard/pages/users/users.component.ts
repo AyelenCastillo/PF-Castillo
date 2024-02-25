@@ -8,6 +8,8 @@ import { UsereditformComponent } from './components/usereditfrom/usereditform.co
 import { UsersService } from './users.service';
 import { UserdetailmodalComponent } from './components/userdetailmodal/userdetailmodal.component';
 import { MatAccordion } from '@angular/material/expansion';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-users',
@@ -16,6 +18,7 @@ import { MatAccordion } from '@angular/material/expansion';
 })
 export class UsersComponent {
   accordionEnabled: boolean = true;
+  isAdmin: boolean = false;
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   panelOpenState = false;
   displayedColumns: string[] = ['idUser', 'fullName', 'email', 'role', 'actions'];
@@ -23,7 +26,15 @@ export class UsersComponent {
   userForm: FormGroup;
   passwordAcceptable: boolean = false;
 
-  constructor(private UsersService: UsersService, private dialog: MatDialog, private cdr: ChangeDetectorRef, private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private UsersService: UsersService, 
+    private dialog: MatDialog, 
+    private cdr: ChangeDetectorRef, 
+    private fb: FormBuilder, 
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService,
+     ) {
     this.loadUsers();
 
     this.userForm = this.fb.group({
@@ -42,6 +53,11 @@ export class UsersComponent {
         this.passwordAcceptable = this.isPasswordAcceptable();
       });
     }
+  }
+
+  ngOnInit(): void {
+    this.isAdmin = this.authService.authUser?.role === 'ADMIN';
+    this.loadUsers();
   }
 
   loadUsers(): void {

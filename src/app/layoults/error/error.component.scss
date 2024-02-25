@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(109, 118, 158);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    text-align: center;
+}
+
+.content p {
+    color: black;
+    font-size: 2em;
+    margin-bottom: 30px; 
+}
+
+.content p:first-child {
+    font-size: 6em; 
+}
+
+.content button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background-color: #adadad;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content button:hover {
+    background-color: #d4d4d4;
+}

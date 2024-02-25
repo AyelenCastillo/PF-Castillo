@@ -90,10 +90,10 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef appSizeTitle> Acciones </th>
         <td *matCellDef="let element">
-          <button (click)="deleteUser(element.id)">
+          <button *ngIf="isAdmin" (click)="deleteUser(element.id)">
             <mat-icon aria-label="Eliminar fila">delete</mat-icon>
           </button>
-          <button   (click)="editUser(element)">
+          <button *ngIf="isAdmin"  (click)="editUser(element)">
             <mat-icon aria-label="Editar fila">edit</mat-icon>
           </button>
           <button  (click)="mostrarDetallesModal(element)">

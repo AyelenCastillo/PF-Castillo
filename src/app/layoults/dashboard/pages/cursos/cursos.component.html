@@ -56,8 +56,8 @@
     </mat-accordion>
   </div>
   
-    <table mat-table [dataSource]="courses" class="mat-elevation-z8">
-  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef appSizeTitle> No. </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
@@ -90,13 +90,13 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef appSizeTitle> Acciones </th>
         <td *matCellDef="let element">
-          <button (click)="deleteCourse(element.id)">
+          <button *ngIf="isAdmin" (click)="deleteCourse(element.id)">
             <mat-icon aria-label="Eliminar fila">delete</mat-icon>
           </button>
-          <button   (click)="editCourse(element)">
+          <button *ngIf="isAdmin" (click)="editCourse(element)">
             <mat-icon aria-label="Editar fila">edit</mat-icon>
           </button>
-          <button  (click)="mostrarDetallesModal(element)">
+          <button (click)="mostrarDetallesModal(element)">
             <mat-icon aria-label="Mostrar detalles">info</mat-icon>
           </button>  
         </td>
