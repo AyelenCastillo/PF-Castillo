@@ -11,6 +11,7 @@ interface Post {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent {
   posts: Post[] = [
     { imageUrl: '../../../../../assets/img/Mesa de trabajo 4.png', 

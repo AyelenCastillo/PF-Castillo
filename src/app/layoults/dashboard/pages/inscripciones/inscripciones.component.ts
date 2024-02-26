@@ -19,7 +19,7 @@ import { AuthService } from '../../../auth/auth.service';
 })
 export class InscripcionesComponent {
   accordionEnabled: boolean = true;
-  isAdmin: boolean = false;
+ 
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   panelOpenState = false;
   displayedColumns: string[] = ['id', 'fullName', 'email', 'curso','schedule', 'actions'];
@@ -55,7 +55,6 @@ export class InscripcionesComponent {
     this.cursosService.getCourse().subscribe(courses => {
       this.courses = courses;
     });
-    this.isAdmin = this.authService.authUser?.role === 'ADMIN';
     this.loadRegistration();
   }
 
@@ -136,6 +135,7 @@ export class InscripcionesComponent {
       }
     );
   }
+
 
   editRegistration(registration: Registration) {
     const dialogRef = this.dialog.open(InscripcionEditFormComponent, {
